@@ -1,0 +1,198 @@
+/* Global Styles */
+body {
+  margin: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+/* Image Pokemon Styles */
+#title-pokemon {
+  font-family: "Pixelify Sans", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: white;
+  border: solid 1px black;
+  border-radius: 100px;
+  padding: 5px 15px;
+  margin-bottom: -5px;
+}
+
+.imagen-pokemon {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  animation: aparecer 1s forwards;
+}
+
+@keyframes aparecer {
+  0% {
+    transform: translateY(50%) rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    transform: translateY(0) rotate(20deg);
+    opacity: 1;
+  }
+  50% {
+    rotate: -20deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+.pokemon {
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  top: 60vh;
+  left: 10px;
+  height: 0;
+}
+
+/* Pokemon Buttons Styles */
+.botones-cambio {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  top: 0px;
+}
+
+#anteriorBtn,
+#siguienteBtn,
+#lanzar,
+#luchar,
+#cambiar,
+#huir {
+  border: outset 2px black;
+  font-family: "Pixelify Sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 0;
+  letter-spacing: 1px;
+}
+
+#anteriorBtn:hover,
+#siguienteBtn:hover,
+#lanzar:hover,
+#luchar:hover,
+#cambiar:hover,
+#huir:hover {
+  border: solid 2px black;
+  color: white;
+}
+
+.boton-lanzar {
+  position: relative;
+  left: -5px;
+  margin-top: 10px;
+  position: relative;
+  top: 0px;
+}
+
+#anteriorBtn p,
+#siguienteBtn p,
+#lanzar p,
+#luchar p,
+#cambiar p,
+#huir p {
+  border: solid 1px transparent;
+  border-radius: 3px;
+  padding: 5px 10px;
+  margin: 0;
+  padding: 5px 10px;
+}
+
+#anteriorBtn p:hover,
+#siguienteBtn p:hover,
+#lanzar p:hover,
+#luchar p:hover,
+#cambiar p:hover,
+#huir p:hover {
+  border: solid 1px white;
+  border-radius: 3px;
+}
+
+#botones-ataque {
+  position: relative;
+  top: -116.9px;
+  left: 235px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#anteriorBtn {
+  background-color: #d54b4c;
+}
+
+#siguienteBtn {
+  background-color: #5dba50;
+}
+
+#lanzar {
+  background-color: #d2b537;
+}
+
+#anteriorBtn:hover {
+  background-color: #963434;
+}
+
+#siguienteBtn:hover {
+  background-color: #356b2e;
+}
+
+#lanzar:hover {
+  background-color: #968227;
+}
+
+#luchar {
+  background-color: #7179dc;
+}
+
+#cambiar {
+  background-color: #d57b4b;
+}
+
+#huir {
+  background-color: #8e4bd5;
+}
+
+#luchar:hover {
+  background-color: #484d8d;
+}
+
+#cambiar:hover {
+  background-color: #915433;
+}
+
+#huir:hover {
+  background-color: #613491;
+}
+
+#botonesAtaques {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  position: relative;
+  top: -140px;
+  left: 150px;
+  gap: 1px;
+}
+
+.ataque {
+  width: 40%;
+  background-color: red;
+}
+
+@media (height < 600px) {
+  .pokemon {
+    top: 47vh;
+  }
+  #botones-ataque {
+    left: 235px;
+  }
+}/*# sourceMappingURL=style.css.map */
