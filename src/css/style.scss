@@ -48,7 +48,6 @@ body {
   justify-content: center;
   position: relative;
   top: 60vh;
-
 }
 /* Pokemon Buttons Styles */
 .botones-cambio {
@@ -111,8 +110,7 @@ body {
 #botones-ataque {
   position: relative;
   top: -116.9px;
-  left: 235px;
-  width: 100px;
+  left: 220px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -155,23 +153,125 @@ body {
 }
 #botonesAtaques {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto auto;
-  position: relative;
-  top: -140px;
-  left: 150px;
-  gap: 1px;
 }
-.ataque {
-  width: 40%;
-  background-color: red;
+.ataque1,
+.ataque2,
+.ataque3,
+.ataque4 {
+  border: outset 2px black;
+  font-family: "Pixelify Sans", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 13px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  padding: 0;
+}
+.ataque1 p,
+.ataque2 p,
+.ataque3 p,
+.ataque4 p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px transparent;
+  border-radius: 3px;
+  padding: 5px 10px;
+  margin: 0;
+  padding: 5px 10px;
+  height: 42px;
+}
+.ataque1 p:hover,
+.ataque2 p:hover,
+.ataque3 p:hover,
+.ataque4 p:hover {
+  border: solid 1px white;
+  border-radius: 3px;
+}
+.ataque1,
+.ataque2 {
+  margin-left: 10px;
+}
+.ataque3,
+.ataque4 {
+  margin-left: 5px;
+}
+.ataque1 {
+  background-color: #915433;
+}
+.ataque2 {
+  background-color: #5dba50;
+}
+.ataque3 {
+  background-color: #b771dc;
+}
+.ataque4 {
+  background-color: #d2b537;
+}
+.ataque1:hover {
+  background-color: #683c25;
+  color: white;
+  border: solid 2px black;
+}
+.ataque2:hover {
+  background-color: #397331;
+  color: white;
+  border: solid 2px black;
+}
+.ataque3:hover {
+  background-color: #7b4b94;
+  color: white;
+  border: solid 2px black;
+}
+.ataque4:hover {
+  background-color: #8f7c25;
+  color: white;
+  border: solid 2px black;
+}
+
+#botonesAtaques,
+#botonesAtaques2 {
+  margin-top: -18.6px;
+  width: 110px;
+}
+.botonesAtaqueCentrados {
+  display: flex;
+}
+.volver {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 70vh;
+  font-size: 15px;
+  margin: 0 10px;
+  text-align: center;
+}
+.volver a {
+  text-decoration: none;
+  font-family: "Pixelify Sans", sans-serif;
+  text-transform: uppercase;
+  background-color: #8e4bd5;
+  border: solid 1.5px black;
+  color: white;
+  border-radius: 100px;
+  padding: 5px 15px;
+  letter-spacing: 1px;
+}
+@media (height < 800px) {
+  #botonesAtaques,
+  #botonesAtaques2 {
+    margin-top: -21.2px;
+  }
 }
 @media (height < 600px) {
   .centrado-pokemon {
     top: 47vh;
   }
-  #botones-ataque {
-
+  #botonesAtaques,
+  #botonesAtaques2 {
+    margin-top: -18.5px;
   }
 }

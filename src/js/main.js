@@ -23,7 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const botonesAtaques = document.getElementById("botones-ataque");
     const ataque = document.getElementById("luchar");
     const ataquesPokemon = document.getElementById("botonesAtaques");
-    let iActual = 0; // Declarar iActual fuera de la función addEventListener
+    const ataquesPokemon2 = document.getElementById("botonesAtaques2");
+    const cambiar = document.getElementById("cambiar");
+    const huir = document.getElementById("huir");
+    let iActual = 0;
     if (contenedor && anteriorBtn && siguienteBtn) {
         function mostrarImagen(i) {
             if (contenedor) {
@@ -94,28 +97,105 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    if (ataque && botonesAtaques) {
+    if (ataque && botonesAtaques && ataquesPokemon2) {
         ataque.addEventListener("click", function () {
-            // Verificar si ataquesPokemon no es null antes de usarlo
+            const ataque1 = document.createElement("div");
+            ataque1.innerHTML = "<p>Pisotón</p>";
+            const ataque2 = document.createElement("div");
+            ataque2.innerHTML = "<p>Chorreo</p>";
+            const ataque3 = document.createElement("div");
+            ataque3.innerHTML = "<p>Guantazo</p>";
+            const ataque4 = document.createElement("div");
+            ataque4.innerHTML = "<p>Puñetazo</p>";
+            ataque1.classList.add("ataque1");
+            ataque2.classList.add("ataque2");
+            ataque3.classList.add("ataque3");
+            ataque4.classList.add("ataque4");
             if (ataquesPokemon) {
-                const ataque1 = document.createElement("div");
-                ataque1.textContent = "Pisotón";
-                const ataque2 = document.createElement("div");
-                ataque2.textContent = "Chorreo";
-                const ataque3 = document.createElement("div");
-                ataque3.textContent = "Guantazo";
-                const ataque4 = document.createElement("div");
-                ataque4.textContent = "Puñetazo";
-                ataque1.classList.add("ataque");
-                ataque2.classList.add("ataque");
-                ataque3.classList.add("ataque");
-                ataque4.classList.add("ataque");
                 ataquesPokemon.innerHTML = "";
                 ataquesPokemon.appendChild(ataque1);
                 ataquesPokemon.appendChild(ataque2);
-                ataquesPokemon.appendChild(ataque3);
-                ataquesPokemon.appendChild(ataque4);
             }
+            ataquesPokemon2.innerHTML = "";
+            ataquesPokemon2.appendChild(ataque3);
+            ataquesPokemon2.appendChild(ataque4);
+        });
+    }
+    function mostrarImagen(i) {
+        if (contenedor) {
+            contenedor.innerHTML = "";
+            const imagen = document.createElement("img");
+            imagen.src = `src/img/${pokemons[i]}`;
+            imagen.classList.add("imagen-pokemon");
+            contenedor.appendChild(imagen);
+        }
+    }
+    if (cambiar) {
+        cambiar.addEventListener("click", function () {
+            // Incrementa el índice actual para mostrar la siguiente imagen
+            iActual++;
+            // Si el índice actual es mayor o igual a la longitud del array de pokemons, vuelve a comenzar desde el principio
+            if (iActual >= pokemons.length) {
+                iActual = 0;
+            }
+            // Muestra la imagen del Pokémon correspondiente al nuevo índice actual
+            mostrarImagen(iActual);
+        });
+    }
+    if (cambiar && ataque && ataquesPokemon && ataquesPokemon2) {
+        cambiar.addEventListener("click", function () {
+            // Oculta los elementos de ataquesPokemon y ataquesPokemon2
+            ataquesPokemon.style.display = "none";
+            ataquesPokemon2.style.display = "none";
+            if (contenedor) {
+                contenedor.innerHTML = "";
+                const imagen = document.createElement("img");
+                const botonesCambio = document.querySelector(".botones-cambio");
+                const titlePokemon = document.getElementById("title-pokemon");
+                const botonesAtaque = document.getElementById("botones-ataque");
+                imagen.src = "./src/img/pokeball.png";
+                imagen.classList.add("imagen-pokemon");
+                contenedor.appendChild(imagen);
+                botonesCambio.style.display = "none";
+                if (lanzarPokemon) {
+                    lanzarPokemon.style.display = "none";
+                }
+                titlePokemon.style.display = "none";
+                botonesAtaque.style.display = "flex";
+                botonesAtaque.style.transform = "translate(-230%, 80%)";
+                setTimeout(function () {
+                    const indicePokemonActual = iActual % pokemons.length;
+                    const imagenPokemon = document.createElement("img");
+                    imagenPokemon.src = `./src/img/${pokemons[indicePokemonActual]}`;
+                    imagenPokemon.classList.add("imagen-pokemon");
+                    contenedor.innerHTML = "";
+                    contenedor.appendChild(imagenPokemon);
+                }, 500);
+            }
+        });
+        ataque.addEventListener("click", function () {
+            // Muestra los elementos de ataquesPokemon y ataquesPokemon2
+            ataquesPokemon.style.display = "block";
+            ataquesPokemon2.style.display = "block";
+        });
+    }
+    if (huir) {
+        huir.addEventListener("click", function () {
+            contenedor.style.display = "none";
+            if (botonesAtaques) {
+                botonesAtaques.style.display = "none";
+            }
+            if (ataquesPokemon && ataquesPokemon2) {
+                ataquesPokemon.style.display = "none";
+                ataquesPokemon2.style.display = "none";
+            }
+            const volver = document.createElement("div");
+            volver.classList.add("volver");
+            const enlace = document.createElement("a");
+            enlace.href = "./index.html";
+            enlace.textContent = "Has huido, ¿Quieres volver a luchar?";
+            volver.appendChild(enlace);
+            document.body.appendChild(volver); // Agrega el enlace al cuerpo del documento
         });
     }
 });
