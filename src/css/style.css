@@ -44,10 +44,14 @@ body {
 .pokemon {
   text-align: center;
   display: inline-block;
+  height: 0;
+}
+
+.centrado-pokemon {
+  display: flex;
+  justify-content: center;
   position: relative;
   top: 60vh;
-  left: 10px;
-  height: 0;
 }
 
 /* Pokemon Buttons Styles */
@@ -189,10 +193,7 @@ body {
 }
 
 @media (height < 600px) {
-  .pokemon {
+  .centrado-pokemon {
     top: 47vh;
-  }
-  #botones-ataque {
-    left: 235px;
   }
 }/*# sourceMappingURL=style.css.map */

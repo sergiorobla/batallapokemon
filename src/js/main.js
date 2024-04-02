@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const contenedor = document.getElementById("contenedor");
     const anteriorBtn = document.getElementById("anteriorBtn");
     const siguienteBtn = document.getElementById("siguienteBtn");
+    const botonesAtaques = document.getElementById("botones-ataque");
+    const ataque = document.getElementById("luchar");
+    const ataquesPokemon = document.getElementById("botonesAtaques");
     let iActual = 0; // Declarar iActual fuera de la función addEventListener
     if (contenedor && anteriorBtn && siguienteBtn) {
         function mostrarImagen(i) {
@@ -29,6 +32,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 imagen.src = `src/img/${pokemons[i]}`;
                 imagen.classList.add("imagen-pokemon");
                 contenedor.appendChild(imagen);
+                if (botonesAtaques) {
+                    botonesAtaques.style.display = "none";
+                }
             }
         }
         function siguienteImagen() {
@@ -75,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 botonesCambio.style.display = "none";
                 lanzarPokemon.style.display = "none";
                 titlePokemon.style.display = "none";
+                botonesAtaque.style.display = "flex";
                 botonesAtaque.style.transform = "translate(-230%, 80%)";
                 setTimeout(function () {
                     const indicePokemonActual = iActual % pokemons.length;
@@ -83,31 +90,32 @@ document.addEventListener("DOMContentLoaded", function () {
                     imagenPokemon.classList.add("imagen-pokemon");
                     contenedor.innerHTML = "";
                     contenedor.appendChild(imagenPokemon);
-                }, 500);
+                }, 800);
             }
         });
     }
-    const ataque = document.getElementById("luchar");
-    const botonesAtaques = document.getElementById("botonesAtaques");
     if (ataque && botonesAtaques) {
         ataque.addEventListener("click", function () {
-            const ataque1 = document.createElement("div");
-            ataque1.textContent = "Pisotón";
-            const ataque2 = document.createElement("div");
-            ataque2.textContent = "Chorreo";
-            const ataque3 = document.createElement("div");
-            ataque3.textContent = "Guantazo";
-            const ataque4 = document.createElement("div");
-            ataque4.textContent = "Puñetazo";
-            ataque1.classList.add("ataque");
-            ataque2.classList.add("ataque");
-            ataque3.classList.add("ataque");
-            ataque4.classList.add("ataque");
-            botonesAtaques.innerHTML = "";
-            botonesAtaques.appendChild(ataque1);
-            botonesAtaques.appendChild(ataque2);
-            botonesAtaques.appendChild(ataque3);
-            botonesAtaques.appendChild(ataque4);
+            // Verificar si ataquesPokemon no es null antes de usarlo
+            if (ataquesPokemon) {
+                const ataque1 = document.createElement("div");
+                ataque1.textContent = "Pisotón";
+                const ataque2 = document.createElement("div");
+                ataque2.textContent = "Chorreo";
+                const ataque3 = document.createElement("div");
+                ataque3.textContent = "Guantazo";
+                const ataque4 = document.createElement("div");
+                ataque4.textContent = "Puñetazo";
+                ataque1.classList.add("ataque");
+                ataque2.classList.add("ataque");
+                ataque3.classList.add("ataque");
+                ataque4.classList.add("ataque");
+                ataquesPokemon.innerHTML = "";
+                ataquesPokemon.appendChild(ataque1);
+                ataquesPokemon.appendChild(ataque2);
+                ataquesPokemon.appendChild(ataque3);
+                ataquesPokemon.appendChild(ataque4);
+            }
         });
     }
 });

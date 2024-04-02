@@ -40,12 +40,16 @@ body {
 .pokemon {
   text-align: center;
   display: inline-block;
-  position: relative;
-  top: 60vh;
-  left: 10px;
+
   height: 0;
 }
+.centrado-pokemon {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 60vh;
 
+}
 /* Pokemon Buttons Styles */
 .botones-cambio {
   display: flex;
@@ -164,11 +168,10 @@ body {
   background-color: red;
 }
 @media (height < 600px) {
-  .pokemon {
+  .centrado-pokemon {
     top: 47vh;
   }
   #botones-ataque {
 
-    left: 235px;
   }
 }
