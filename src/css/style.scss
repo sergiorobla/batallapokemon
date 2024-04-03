@@ -3,7 +3,13 @@ body {
   margin: 0;
   user-select: none;
 }
-
+html {
+  background-image: url(../img/fondo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+}
 /* Image Pokemon Styles */
 #title-pokemon {
   font-family: "Pixelify Sans", sans-serif;
@@ -20,6 +26,10 @@ body {
   height: 100px;
   margin: 10px;
   animation: aparecer 1s forwards;
+}
+.imagen-pokemon2 {
+  position: relative;
+  top: -200px;
 }
 @keyframes aparecer {
   0% {

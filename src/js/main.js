@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const ataquesPokemon2 = document.getElementById("botonesAtaques2");
     const cambiar = document.getElementById("cambiar");
     const huir = document.getElementById("huir");
+    const imagencitaPokemon = document.querySelector(".imagen-pokemon");
     let iActual = 0;
     if (contenedor && anteriorBtn && siguienteBtn) {
         function mostrarImagen(i) {
@@ -86,6 +87,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 titlePokemon.style.display = "none";
                 botonesAtaque.style.display = "flex";
                 botonesAtaque.style.transform = "translate(-230%, 80%)";
+                const imagen2 = document.createElement("img");
+                imagen2.src = "./src/img/Hooh.png";
+                imagen2.classList.add("imagen-pokemon2");
+                contenedor.appendChild(imagen2);
                 setTimeout(function () {
                     const indicePokemonActual = iActual % pokemons.length;
                     const imagenPokemon = document.createElement("img");
@@ -93,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     imagenPokemon.classList.add("imagen-pokemon");
                     contenedor.innerHTML = "";
                     contenedor.appendChild(imagenPokemon);
+                    contenedor.appendChild(imagen2);
                 }, 800);
             }
         });
@@ -144,25 +150,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     if (cambiar && ataque && ataquesPokemon && ataquesPokemon2) {
         cambiar.addEventListener("click", function () {
-            // Oculta los elementos de ataquesPokemon y ataquesPokemon2
+            if (botonesAtaques) {
+                botonesAtaques.style.left = "162.7px";
+            }
             ataquesPokemon.style.display = "none";
             ataquesPokemon2.style.display = "none";
             if (contenedor) {
                 contenedor.innerHTML = "";
                 const imagen = document.createElement("img");
-                const botonesCambio = document.querySelector(".botones-cambio");
-                const titlePokemon = document.getElementById("title-pokemon");
-                const botonesAtaque = document.getElementById("botones-ataque");
                 imagen.src = "./src/img/pokeball.png";
                 imagen.classList.add("imagen-pokemon");
                 contenedor.appendChild(imagen);
-                botonesCambio.style.display = "none";
-                if (lanzarPokemon) {
-                    lanzarPokemon.style.display = "none";
-                }
-                titlePokemon.style.display = "none";
-                botonesAtaque.style.display = "flex";
-                botonesAtaque.style.transform = "translate(-230%, 80%)";
+                const imagen2 = document.createElement("img");
+                imagen2.src = "./src/img/Hooh.png";
+                imagen2.classList.add("imagen-pokemon2");
+                contenedor.appendChild(imagen2);
                 setTimeout(function () {
                     const indicePokemonActual = iActual % pokemons.length;
                     const imagenPokemon = document.createElement("img");
@@ -170,13 +172,23 @@ document.addEventListener("DOMContentLoaded", function () {
                     imagenPokemon.classList.add("imagen-pokemon");
                     contenedor.innerHTML = "";
                     contenedor.appendChild(imagenPokemon);
+                    contenedor.appendChild(imagen2);
                 }, 500);
             }
         });
         ataque.addEventListener("click", function () {
-            // Muestra los elementos de ataquesPokemon y ataquesPokemon2
+            if (botonesAtaques) {
+                botonesAtaques.style.left = "220px";
+            }
             ataquesPokemon.style.display = "block";
             ataquesPokemon2.style.display = "block";
+            const imagenPokemonExistente = contenedor.querySelector(".imagen-pokemon2");
+            if (!imagenPokemonExistente) {
+                const imagen2 = document.createElement("img");
+                imagen2.src = "./src/img/Hooh.png";
+                imagen2.classList.add("imagen-pokemon2");
+                contenedor.appendChild(imagen2);
+            }
         });
     }
     if (huir) {
